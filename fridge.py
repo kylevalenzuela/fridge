@@ -11,6 +11,6 @@ while True:
     if GPIO.input(8):
        print("Door is open")
        time.sleep(2)
-    if (GPIO.input(8) == False:
+    else:
        print("Door is closed")
        time.sleep(2)
