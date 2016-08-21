@@ -1,16 +1,12 @@
-import RPi.GPIO as GPIO #import the GPIO library  
+import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.BOARD)  
-GPIO.setup(8, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setmode(GPIO.BCM)
 
-name = "Kyle"  
-print("Hello " + name)
+GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-while True:  
-    if GPIO.input(8):
-       print("Door is open")
-       time.sleep(2)
-    else:
-       print("Door is closed")
-       time.sleep(2)
+while True:
+    input_state = GPIO.input(18)
+    if input_state == False:
+        print('Button Pressed')
+        time.sleep(0.2)
